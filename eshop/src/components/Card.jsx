@@ -54,7 +54,7 @@ function Card({img}) {
             <img src={img.url} alt="" />
             {cartIcon()}
             {favoriteIcon()}
-            <h6>{img.title} - {img.price}</h6>
+            <h6>{img.title} - {Number(img.price).toLocaleString("en-US", {style:"currency", currency:"USD"})}</h6>
         </div>
     )
 }

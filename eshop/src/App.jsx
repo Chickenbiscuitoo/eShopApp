@@ -1,21 +1,14 @@
 import React from "react";
-import {Routes, Route, Link} from "react-router-dom"
+import {Routes, Route} from "react-router-dom"
 
+import Header from './components/Header.jsx'
 import Cards from './pages/Cards.jsx'
 import Cart from './pages/Cart.jsx'
 
 const App = () => {
 	return (
-    	<div>
-			<header>
-				<Link to='/'>
-					<h1>"Real" Shop</h1>
-				</Link>
-				<Link to='/cart'>
-					<i className={'ri-shopping-cart-line ri-fw ri-2x'}></i>
-				</Link>
-			</header>
-
+    	<div>	
+			<Header />
 			<Routes>
 				<Route exact path="/" element={<Cards />} />
 				<Route path="/cart" element={<Cart />} />

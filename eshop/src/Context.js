@@ -27,13 +27,18 @@ function ContextProvider({children}) {
         setCartItems(filteredArr)
     }
 
+    function emptyCart() {
+        setCartItems([])
+    }
+
     return (
         <Context.Provider value={{
             imagesArr,
             toggleFavorite,
             cartItems,
             addToCart,
-            removeFromCart
+            removeFromCart,
+            emptyCart
         }}>
             {children}
         </Context.Provider>
