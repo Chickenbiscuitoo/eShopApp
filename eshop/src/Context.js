@@ -5,6 +5,7 @@ const Context = React.createContext()
 
 function ContextProvider({children}) {
     const [imagesArr, setImagesArr] = React.useState(images)
+    const [cartItems, setCartItems] = React.useState([])
 
     function toggleFavorite(id) {
         const updatedArray = imagesArr.map(img => {
@@ -17,10 +18,22 @@ function ContextProvider({children}) {
         setImagesArr(updatedArray)
     }
 
+    function addToCart(img) {
+        setCartItems(prevCart => [...prevCart, img])
+    }
+
+    function removeFromCart(img) {
+        const filteredArr = cartItems.filter(item => item.id !== img.id)
+        setCartItems(filteredArr)
+    }
+
     return (
         <Context.Provider value={{
             imagesArr,
-            toggleFavorite
+            toggleFavorite,
+            cartItems,
+            addToCart,
+            removeFromCart
         }}>
             {children}
         </Context.Provider>
